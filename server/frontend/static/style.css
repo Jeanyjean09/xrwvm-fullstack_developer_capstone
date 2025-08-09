@@ -124,3 +124,65 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+/* style.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #003366 url('/static/contact.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Header styling */
+header {
+  background-color: rgba(0, 0, 51, 0.85); /* dark blue with transparency */
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #0059b3;
+}
+
+nav a.active {
+  background-color: #0073e6;
+  cursor: default;
+}
+
+/* Main content */
+main {
+  background-color: rgba(0, 0, 51, 0.7);
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+}
+
+main p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+main p strong {
+  color: #ffcc00;
+}
