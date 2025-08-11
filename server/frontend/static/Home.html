@@ -6,14 +6,16 @@
   <link rel="stylesheet" href="static/bootstrap.min.css">
 <script>
 const logout = async (e) => {
-  let logout_url = window.location.origin + "/djangoapp/logout/"; // <-- trailing slash!
+  // Build logout URL and Make GET request to logout endpoint
+  let logout_url = window.location.origin + "/djangoapp/logout/"; // trailing slash for Django!
   const res = await fetch(logout_url, { method: "GET" });
   const json = await res.json();
   if (json) {
+    // Clear session storage and reload page
     let username = sessionStorage.getItem('username');
     sessionStorage.removeItem('username');
-    alert("Logging out " + username + "..."); // <-- Alert before reload
-    window.location.href = window.location.origin; // reload to homepage
+    alert("Logging out " + username + "..."); // Notify user of logout BEFORE reload
+    window.location.href = window.location.origin; // Reload to homepage
   } else {
     alert("The user could not be logged out.");
   }
@@ -22,12 +24,12 @@ const logout = async (e) => {
 let checkSession = ()=>{
   let curr_user = sessionStorage.getItem("username");
   if (curr_user && curr_user !== "") {
-    document.getElementById("loginlogout").innerHTML = 
-      '<span class="homepage_links">' + curr_user +'</span>' +
+    document.getElementById("loginlogout").innerHTML =
+      '<span class="homepage_links">' + curr_user + '</span>' +
       '<a class="homepage_links" href="javascript:void(0);" onclick="logout()" style="cursor:pointer;">Logout</a>';
   } else {
-    document.getElementById("loginlogout").innerHTML = 
-      '<a class="homepage_links" href="/login">Login</a>'+
+    document.getElementById("loginlogout").innerHTML =
+      '<a class="homepage_links" href="/login">Login</a>' +
       '<a class="homepage_links" href="/register">Register</a>';
   }
 }

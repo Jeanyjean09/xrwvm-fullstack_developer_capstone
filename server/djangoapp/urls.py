@@ -6,6 +6,7 @@ from django.conf import settings
 app_name = 'djangoapp'
 urlpatterns = [
     path('login', views.login_user, name='login'),
-    path('logout/', views.logout_user, name='logout'),   # <-- trailing slash!
+    path('logout/', views.logout_user, name='logout'),
+    path('register', views.registration, name='register'),  # <-- Registration route
     # ... other paths ...
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
