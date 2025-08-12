@@ -24,6 +24,7 @@ class CarModel(models.Model):
         ('SEDAN', 'Sedan'),
         ('SUV', 'SUV'),
         ('WAGON', 'Wagon'),
+        
         # Add more as needed
     ]
     type = models.CharField(max_length=10, choices=CAR_TYPES, default='SUV')
