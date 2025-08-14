@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dealership
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: dealership
+  template:
+    metadata:
+      labels:
+        run: dealership
+    spec:
+      containers:
+        - name: dealership
+          image: us.icr.io/sn-labs-geromomevilj/dealership:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+      restartPolicy: Always
